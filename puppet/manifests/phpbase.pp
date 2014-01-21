@@ -21,11 +21,8 @@ include php
 include apache
 include mysql
 include phpmyadmin
-include beanstalkd
-include redis
-include memcached
 
-include laravel_app
+# include laravel_app
 
 class { 'postgresql::server':
   config_hash => {
@@ -36,9 +33,4 @@ class { 'postgresql::server':
     'postgres_password'          => 'vagrant',
   },
   require => [Exec['apt-get update'], Package['python-software-properties']]
-}
-
-postgresql::db { 'database':
-  user     => 'root',
-  password => 'root'
 }
