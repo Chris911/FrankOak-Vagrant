@@ -21,5 +21,6 @@ include php
 include apache
 include mysql
 include phpmyadmin
+include redis
 
 # include laravel_app
