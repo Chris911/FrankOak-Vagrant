@@ -14,12 +14,12 @@ exec
         require => Exec['add php55 apt-repo']
 }
 
-include git
 include bootstrap
 include other #curl and sqlite
 include php55 #specific setup steps for 5.5
 include php
 include apache
+include git
 include mysql
 include phpmyadmin
 include redis

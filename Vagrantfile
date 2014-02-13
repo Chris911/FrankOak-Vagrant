@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
         fo_dev_config.vm.network :forwarded_port, guest: 3306, host: 8889, auto_correct: true
         fo_dev_config.vm.network :forwarded_port, guest: 5432, host: 5433, auto_correct: true
         fo_dev_config.vm.hostname = "FrankOak-Dev"
-        fo_dev_config.vm.synced_folder "www", "/var/www", {:mount_options => ['dmode=777','fmode=777']}
+        fo_dev_config.vm.synced_folder "/Users/mac/Documents/Development/FrankOak/Frank-Oak-2.0", "/var/www", {:mount_options => ['dmode=777','fmode=777']}
         fo_dev_config.vm.provision :shell, :inline => "echo \"Canada/Eastern\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
 
         fo_dev_config.vm.provider :virtualbox do |v|
@@ -30,5 +30,6 @@ Vagrant.configure("2") do |config|
         end
 
         fo_dev_config.vm.provision :shell, :path => "puppet/scripts/enable_remote_mysql_access.sh"
+        fo_dev_config.vm.provision :shell, :path => "puppet/scripts/install_phpredis.sh"
     end
 end
