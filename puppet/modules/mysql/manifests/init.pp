@@ -9,6 +9,13 @@ class mysql
             require => Exec['apt-get update']
     }
 
+    package 
+    { 
+        "python-mysqldb":
+            ensure  => present,
+            require => Exec['apt-get update']
+    }
+    
     service 
     { 
         "mysql":
