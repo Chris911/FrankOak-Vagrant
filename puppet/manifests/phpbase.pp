@@ -23,5 +23,6 @@ include git
 include mysql
 include phpmyadmin
 include redis
+include composer
 
 # include laravel_app
